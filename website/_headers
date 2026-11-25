@@ -1,0 +1,7 @@
+# Caching rules for Netlify and Cloudflare Pages: the page is always re-checked, the game file (its name changes with every update) is kept for a year.
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/app.*.js
+  Cache-Control: public, max-age=31536000, immutable

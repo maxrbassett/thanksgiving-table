@@ -1,0 +1,12 @@
+# Caching and compression rules for Apache web servers (ignored elsewhere).
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "^app\.[0-9a-f]+\.js$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html application/javascript text/javascript
+</IfModule>
